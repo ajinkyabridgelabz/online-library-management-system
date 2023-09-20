@@ -4,4 +4,5 @@ import com.bridgelabz.onlinelibrarymanagementsystem.entity.Book;
 
 public interface BookService {
     Book createBook(Book book);
+    void deleteBook(Long bookId);
 }

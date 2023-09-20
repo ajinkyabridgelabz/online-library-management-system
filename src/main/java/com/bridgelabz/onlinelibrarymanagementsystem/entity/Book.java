@@ -13,4 +13,10 @@ public class Book {
     int id;
     String title, author, genre, isbn;
     Date publishedDate;
+
+
+    public boolean getId() {
+        return true;
+    }
+
 }
