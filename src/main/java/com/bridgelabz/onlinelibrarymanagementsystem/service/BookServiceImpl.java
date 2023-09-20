@@ -15,4 +15,8 @@ public class BookServiceImpl implements BookService {
          bookRepo.add(book);
         return book;
     }
+    @Override
+    public List<Book> getAllBooks() {
+        return bookRepo;
+    }
 }
