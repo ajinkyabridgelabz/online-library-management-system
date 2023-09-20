@@ -21,7 +21,7 @@ public class BookServiceImpl implements BookService {
         Iterator<Book> iterator = bookRepo.iterator();
         while (iterator.hasNext()) {
             Book book = iterator.next();
-            if (book.getId()) {
+            if (book.getId()==bookId) {
                 iterator.remove();
             }else {
                 System.out.println("not found");
