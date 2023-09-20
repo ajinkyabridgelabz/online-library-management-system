@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BookServiceImpl implements BookService {
@@ -15,4 +16,9 @@ public class BookServiceImpl implements BookService {
          bookRepo.add(book);
         return book;
     }
+
+    public Optional<Book> searchBook(String title){
+        return bookRepo.stream().filter(name -> title.equals(name)).findAny();
+    }
+
 }

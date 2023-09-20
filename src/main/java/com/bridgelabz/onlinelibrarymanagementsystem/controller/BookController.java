@@ -4,10 +4,9 @@ import com.bridgelabz.onlinelibrarymanagementsystem.entity.Book;
 import com.bridgelabz.onlinelibrarymanagementsystem.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
 
 
 @RestController
@@ -18,5 +17,11 @@ public class BookController {
     public ResponseEntity<Book> addBook(@RequestBody Book book){
         bookService.createBook(book);
         return ResponseEntity.ok(book);
+    }
+
+    @GetMapping("/books/search")
+    public ResponseEntity<Book> searchBook(@RequestParam String title){
+        Optional<Book> book =bookService.searchBook(title);
+        return ResponseEntity.ok(book.get());
     }
 }
