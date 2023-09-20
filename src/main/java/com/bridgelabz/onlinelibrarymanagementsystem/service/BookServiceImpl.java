@@ -11,8 +11,8 @@ public class BookServiceImpl implements BookService {
 
     List<Book> bookRepo= new ArrayList<>();
     @Override
-    public String createBook(Book book) {
+    public Book createBook(Book book) {
          bookRepo.add(book);
-        return "Succefull added";
+        return book;
     }
 }
