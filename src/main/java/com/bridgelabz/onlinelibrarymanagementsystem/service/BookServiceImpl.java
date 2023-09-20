@@ -16,15 +16,14 @@ public class BookServiceImpl implements BookService {
          bookRepo.add(book);
         return book;
     }
+
     @Override
     public void deleteBook(Long bookId) {
         Iterator<Book> iterator = bookRepo.iterator();
         while (iterator.hasNext()) {
             Book book = iterator.next();
-            if (book.getId()==bookId) {
+            if (book.getId() == bookId) {
                 iterator.remove();
-            }else {
-                System.out.println("not found");
             }
         }
     }

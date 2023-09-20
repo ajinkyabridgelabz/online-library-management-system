@@ -15,9 +15,4 @@ public class Book {
     String title, author, genre, isbn;
     Date publishedDate;
 
-
-    public long getId() {
-        return id;
-    }
-
 }
