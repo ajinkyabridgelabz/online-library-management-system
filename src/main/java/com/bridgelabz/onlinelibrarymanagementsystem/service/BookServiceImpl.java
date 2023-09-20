@@ -17,8 +17,12 @@ public class BookServiceImpl implements BookService {
         return book;
     }
 
-    public Optional<Book> searchBook(String title){
-        return bookRepo.stream().filter(name -> title.equals(name)).findAny();
-    }
 
+    public Book searchBook(String title){
+        for(Book book:bookRepo){
+            if(book.getTitle().equals(title))
+                return book;
+        }
+        return null;
+    }
 }

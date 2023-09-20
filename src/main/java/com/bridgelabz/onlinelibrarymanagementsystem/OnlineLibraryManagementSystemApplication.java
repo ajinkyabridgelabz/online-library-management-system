@@ -8,7 +8,6 @@ public class 	OnlineLibraryManagementSystemApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(OnlineLibraryManagementSystemApplication.class, args);
-
 	}
 
 }

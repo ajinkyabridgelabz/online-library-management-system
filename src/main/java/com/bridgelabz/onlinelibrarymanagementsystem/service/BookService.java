@@ -7,5 +7,6 @@ import java.util.Optional;
 public interface BookService {
     Book createBook(Book book);
 
-    Optional<Book> searchBook(String title);
+
+    Book searchBook(String title);
 }
