@@ -1,0 +1,1 @@
+Create a web application using Spring Boot that allows users to manage books in an online library. This will include basic CRUD operations on books (Create, Read, Update, Delete) and possibly user account management.
