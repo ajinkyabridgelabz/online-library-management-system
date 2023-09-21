@@ -11,10 +11,14 @@ import java.util.Optional;
 public interface BookService {
     Book createBook(Book book);
 
+    Book updateBook(int id, Book book);
+
+
     void deleteBook(Long bookId);
 
     List<Book> getAllBooks();
     Book searchBook(String title);
+
 
 
 }

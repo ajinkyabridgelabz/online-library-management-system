@@ -8,6 +8,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
+import org.springframework.web.bind.annotation.*;
+
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,15 +25,24 @@ import java.util.Optional;
 
 
 
+
 @RestController
 public class BookController {
     @Autowired
     BookService bookService;
-    @PostMapping("books")
+    @PostMapping("/books")
     public ResponseEntity<Book> addBook(@RequestBody Book book){
         bookService.createBook(book);
         return ResponseEntity.ok(book);
     }
+
+
+    @PutMapping("/books/{bookId}")
+    public ResponseEntity<Book> updateBook(@PathVariable("bookId") int bookId, @RequestBody Book book){
+        bookService.updateBook(bookId,book);
+        return ResponseEntity.ok(book);
+    }
+
 
     @DeleteMapping("books/{bookId}")
     public ResponseEntity<String> deleteBook(@PathVariable Long bookId) {
@@ -49,4 +61,5 @@ public class BookController {
         return ResponseEntity.ok(book);
 
     }
+
 }
