@@ -36,6 +36,7 @@ public class BookController {
     public ResponseEntity<String> deleteBook(@PathVariable Long bookId) {
         bookService.deleteBook(bookId);
         return ResponseEntity.ok("Book with ID " + bookId + " has been deleted.");
+    }
 
     @GetMapping("/getAll")
     public ResponseEntity<List<Book>> getAllBooks() {

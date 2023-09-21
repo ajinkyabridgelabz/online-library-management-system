@@ -27,6 +27,7 @@ public class BookServiceImpl implements BookService {
                 iterator.remove();
             }
         }
+    }
 
     public List<Book> getAllBooks() {
         return bookRepo;
