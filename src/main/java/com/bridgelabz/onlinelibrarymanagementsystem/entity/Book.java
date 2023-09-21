@@ -1,5 +1,6 @@
 package com.bridgelabz.onlinelibrarymanagementsystem.entity;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,7 +11,8 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Book {
-    int id;
+    long id;
     String title, author, genre, isbn;
     Date publishedDate;
+
 }

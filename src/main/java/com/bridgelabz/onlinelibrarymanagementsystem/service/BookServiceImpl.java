@@ -20,6 +20,7 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
+
     public Book updateBook(int id, Book book) {
         Iterator<Book> iterator = bookRepo.iterator();
         while (iterator.hasNext()) {
@@ -30,5 +31,29 @@ public class BookServiceImpl implements BookService {
             }
         }
         return null;
+
+    public void deleteBook(Long bookId) {
+        Iterator<Book> iterator = bookRepo.iterator();
+        while (iterator.hasNext()) {
+            Book book = iterator.next();
+            if (book.getId() == bookId) {
+                iterator.remove();
+            }
+        }
+    }
+
+    public List<Book> getAllBooks() {
+        return bookRepo;
+
+    }
+
+    public Book searchBook(String title){
+        for(Book book:bookRepo){
+            if(book.getTitle().equals(title))
+                return book;
+        }
+        return null;
+
     }
 }
+
