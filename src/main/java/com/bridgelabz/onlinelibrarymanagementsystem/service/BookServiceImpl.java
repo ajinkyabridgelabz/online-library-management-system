@@ -4,6 +4,7 @@ import com.bridgelabz.onlinelibrarymanagementsystem.entity.Book;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,6 +19,15 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
+    public void deleteBook(Long bookId) {
+        Iterator<Book> iterator = bookRepo.iterator();
+        while (iterator.hasNext()) {
+            Book book = iterator.next();
+            if (book.getId() == bookId) {
+                iterator.remove();
+            }
+        }
+
     public List<Book> getAllBooks() {
         return bookRepo;
 
@@ -32,3 +42,4 @@ public class BookServiceImpl implements BookService {
 
     }
 }
+

@@ -5,6 +5,9 @@ import com.bridgelabz.onlinelibrarymanagementsystem.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 
+import org.springframework.web.bind.annotation.*;
+
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,6 +21,7 @@ import java.util.Optional;
 
 
 
+
 @RestController
 public class BookController {
     @Autowired
@@ -28,6 +32,11 @@ public class BookController {
         return ResponseEntity.ok(book);
     }
 
+    @DeleteMapping("books/{bookId}")
+    public ResponseEntity<String> deleteBook(@PathVariable Long bookId) {
+        bookService.deleteBook(bookId);
+        return ResponseEntity.ok("Book with ID " + bookId + " has been deleted.");
+
     @GetMapping("/getAll")
     public ResponseEntity<List<Book>> getAllBooks() {
         List<Book> books = bookService.getAllBooks();
@@ -37,5 +46,6 @@ public class BookController {
     public ResponseEntity<Book> searchBook(@RequestParam String title){
         Book book = bookService.searchBook(title);
         return ResponseEntity.ok(book);
+
     }
 }
