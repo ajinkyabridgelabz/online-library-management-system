@@ -17,6 +17,11 @@ public class BookServiceImpl implements BookService {
         return book;
     }
 
+    @Override
+    public List<Book> getAllBooks() {
+        return bookRepo;
+
+    }
 
     public Book searchBook(String title){
         for(Book book:bookRepo){
@@ -24,5 +29,6 @@ public class BookServiceImpl implements BookService {
                 return book;
         }
         return null;
+
     }
 }
