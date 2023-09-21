@@ -10,7 +10,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Book {
-    int id;
-    String title, author, genre, isbn;
-    Date publishedDate;
+    private long id;
+    private String title, author, genre, isbn;
+    private Date publishedDate;
 }
