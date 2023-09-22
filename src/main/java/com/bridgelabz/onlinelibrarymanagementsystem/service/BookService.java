@@ -14,7 +14,7 @@ public interface BookService {
     void deleteBook(Long bookId);
 
     List<Book> getAllBooks();
-    Book searchBook(String title);
+    List<Book> searchBook(String title);
 
 
 }
