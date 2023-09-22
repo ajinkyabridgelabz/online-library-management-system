@@ -48,7 +48,7 @@ DbConnection dbBonnection = new DbConnection();
     @Override
     public List<Book> findAll() throws SQLException {
         List<Book> books = new ArrayList<>();
-        try (PreparedStatement statement = connection.prepareStatement("SELECT * FROM employee");
+        try (PreparedStatement statement = connection.prepareStatement("SELECT * FROM book");
              ResultSet resultSet = statement.executeQuery()) {
             while (resultSet.next()) {
                 Book book = new Book();
