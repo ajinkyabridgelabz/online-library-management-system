@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.*;
@@ -23,6 +24,8 @@ import java.util.Optional;
 
 
 @RestController
+@RequestMapping("/api/user")
+
 public class BookController {
     @Autowired
     BookService bookService;
@@ -33,7 +36,7 @@ public class BookController {
     }
 
     @DeleteMapping("books/{bookId}")
-    public ResponseEntity<String> deleteBook(@PathVariable Long bookId) {
+    public ResponseEntity<String> deleteBook(@PathVariable Long bookId) throws SQLException {
         bookService.deleteBook(bookId);
         return ResponseEntity.ok("Book with ID " + bookId + " has been deleted.");
     }
