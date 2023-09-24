@@ -14,8 +14,8 @@ public interface BookService {
 
     void deleteBook(Long bookId) throws SQLException;
 
-    List<Book> getAllBooks();
-    Book searchBook(String title);
+    List<Book> getAllBooks() throws SQLException;
+    Book searchBook(String title) throws SQLException;
 
 
 }

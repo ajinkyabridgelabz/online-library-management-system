@@ -12,6 +12,7 @@ public interface BookRepository {
 
     public List<Book> findAll() throws SQLException;
 
-
     Book findById(Long id) throws SQLException;
+
+    Book findByTitle(String title) throws SQLException;
 }

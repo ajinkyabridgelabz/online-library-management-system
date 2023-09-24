@@ -14,8 +14,9 @@ public class MySQLBookRepository implements BookRepository {
     }
 
 
-DbConnection dbBonnection = new DbConnection();
+    DbConnection dbBonnection = new DbConnection();
     Connection connection = dbBonnection.getConnection();
+
     @Override
     public void save(Book book) {
         try (PreparedStatement statement = connection.prepareStatement(
@@ -65,6 +66,7 @@ DbConnection dbBonnection = new DbConnection();
         }
         return books;
     }
+
     @Override
     public Book findById(Long id) throws SQLException {
         Book book = null;
@@ -86,7 +88,28 @@ DbConnection dbBonnection = new DbConnection();
         return book;
     }
 
+    @Override
+    public Book findByTitle(String title) throws SQLException {
+        Book book = null;
+        try (PreparedStatement statement = connection.prepareStatement(
+                "SELECT * FROM employee WHERE id = ?")) {
+            statement.setString(3, title);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
+                    book = new Book();
+                    book.setId(resultSet.getLong("id"));
+                    book.setId(resultSet.getLong("id"));
+                    book.setTitle(resultSet.getString("title"));
+                    book.setAuthor(resultSet.getString("author"));
+                    book.setGenre(resultSet.getString("genre"));
+                    book.setIsbn(resultSet.getString("isbn"));
+                }
+            }
+        }
+        return book;
     }
+
+}
 
 
 
